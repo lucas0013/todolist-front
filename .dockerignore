@@ -1,0 +1,22 @@
+# Ignorar arquivos e diretórios específicos
+node_modules
+dist
+build
+.cache
+
+# Ignorar arquivos de desenvolvimento
+*.log
+*.debug
+*.env
+*.local
+*.env.local
+*.env.development.local
+*.env.test.local
+*.env.production.local
+
+# Ignorar arquivos não essenciais do controle de versão
+.git
+.gitignore
+.vscode
+.DS_Store
+Thumbs.db

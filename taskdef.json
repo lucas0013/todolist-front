@@ -1,0 +1,103 @@
+{
+  "taskDefinitionArn": "arn:aws:ecs:us-east-2:396293663259:task-definition/dev-tcc-frontend-taskdef:5",
+  "containerDefinitions": [
+      {
+          "name": "frontend",
+          "image": "396293663259.dkr.ecr.us-east-2.amazonaws.com/frontend-registry-repo",
+          "cpu": 512,
+          "memory": 1024,
+          "memoryReservation": 512,
+          "portMappings": [
+              {
+                  "name": "frontend-5173-tcp",
+                  "containerPort": 5173,
+                  "hostPort": 5173,
+                  "protocol": "tcp"
+              },
+              {
+                  "name": "frontend-80-tcp",
+                  "containerPort": 80,
+                  "hostPort": 80,
+                  "protocol": "tcp"
+              }
+          ],
+          "essential": true,
+          "environment": [
+              {
+                  "name": "VITE_API_URL",
+                  "value": "http://3.144.4.75:5009/api"
+              }
+          ],
+          "mountPoints": [],
+          "volumesFrom": [],
+          "ulimits": [],
+          "logConfiguration": {
+              "logDriver": "awslogs",
+              "options": {
+                  "awslogs-create-group": "true",
+                  "awslogs-group": "/ecs/dev-tcc-frontend",
+                  "awslogs-region": "us-east-2",
+                  "awslogs-stream-prefix": "ecs"
+              },
+              "secretOptions": []
+          }
+      }
+  ],
+  "family": "dev-tcc-frontend-taskdef",
+  "taskRoleArn": "arn:aws:iam::396293663259:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::396293663259:role/ecsTaskExecutionRole",
+  "networkMode": "awsvpc",
+  "revision": 5,
+  "volumes": [],
+  "status": "ACTIVE",
+  "requiresAttributes": [
+      {
+          "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+      },
+      {
+          "name": "ecs.capability.execution-role-awslogs"
+      },
+      {
+          "name": "com.amazonaws.ecs.capability.ecr-auth"
+      },
+      {
+          "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+      },
+      {
+          "name": "com.amazonaws.ecs.capability.docker-remote-api.1.21"
+      },
+      {
+          "name": "com.amazonaws.ecs.capability.task-iam-role"
+      },
+      {
+          "name": "ecs.capability.execution-role-ecr-pull"
+      },
+      {
+          "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+      },
+      {
+          "name": "ecs.capability.task-eni"
+      },
+      {
+          "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+      }
+  ],
+  "placementConstraints": [],
+  "compatibilities": [
+      "EC2",
+      "FARGATE"
+  ],
+  "requiresCompatibilities": [
+      "FARGATE"
+  ],
+  "cpu": "512",
+  "memory": "1024",
+  "registeredAt": "2023-10-21T20:57:22.513Z",
+  "registeredBy": "arn:aws:iam::396293663259:root",
+  "tags": [
+      {
+          "key": "dev-tcc",
+          "value": "front"
+      }
+  ]
+}

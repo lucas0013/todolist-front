@@ -1,0 +1,29 @@
+{
+  "taskDefinition": "dev-tcc-frontend-taskdef:5",
+  "cluster": "dev-tcc-frontend-cluster",
+  "loadBalancers": [
+    {
+      "targetGroupArn": "arn:aws:elasticloadbalancing:us-east-2:396293663259:targetgroup/dev-tcc-targetgroup3/43c0634c3acdc8de",
+      "containerName": "frontend",
+      "containerPort": 80
+    }
+  ],
+  "desiredCount": 1,
+  "launchType": "FARGATE",
+  "schedulingStrategy": "REPLICA",
+  "deploymentController": {
+    "type": "CODE_DEPLOY"
+  },
+  "networkConfiguration": {
+    "awsvpcConfiguration": {
+      "subnets": [
+        "subnet-0067e0f0895183bf5",
+        "subnet-0dfcf07579b13463c"
+      ],
+      "securityGroups": [
+        "sg-05f14b3677a5b083f"
+      ],
+      "assignPublicIp": "ENABLED"
+    }
+  }
+}
